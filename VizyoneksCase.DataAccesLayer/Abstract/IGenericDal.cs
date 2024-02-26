@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VizyoneksCase.DataAccesLayer.Abstract
 {
-    public interface IGenericDal<T> where T : class 
+    public interface IGenericDal<T> where T : class,new()
     {
         void Insert(T entity);  
         void Delete(T entity);  

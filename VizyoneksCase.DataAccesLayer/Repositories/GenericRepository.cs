@@ -8,40 +8,45 @@ using VizyoneksCase.DataAccesLayer.Concrete;
 
 namespace VizyoneksCase.DataAccesLayer.Repositories
 {
-    public class GenericRepository<T> : IGenericDal<T> where T : class 
+    public class GenericRepository<T> : IGenericDal<T> where T : class ,new()
     {
+        private readonly Context _context;
+
+        public GenericRepository(Context context)
+        {
+            _context = context;
+        }
         public void Delete(T entity)
         {
-            using var context = new Context();
-            context.Set<T>().Remove(entity);
-            context.SaveChanges();  
+           
+            _context.Set<T>().Remove(entity);
+            _context.SaveChanges();  
         }
 
         public T GetById(int id)
         {
-            var context = new Context();
-            return context.Set<T>().Find(id);
+            return _context.Set<T>().Find(id);
              
         }
 
         public List<T> GetLİst()
         {
-            var context = new Context();
-            return context.Set<T>().ToList();
+           
+            return _context.Set<T>().ToList();
         }
 
         public void Insert(T entity)
         {
-            var context = new Context();
-            context.Set<T>().Add(entity);
-            context.SaveChanges();
+          
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(T entity)
         {
-            var context = new Context();
-            context.Set<T>().Update(entity);    
-            context.SaveChanges();
+          
+            _context.Set<T>().Update(entity);    
+            _context.SaveChanges();
         }
     }
    

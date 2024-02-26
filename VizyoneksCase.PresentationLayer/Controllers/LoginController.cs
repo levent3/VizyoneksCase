@@ -30,7 +30,7 @@ namespace VizyoneksCase.PresentationLayer.Controllers
             var result=await _signInManager.PasswordSignInAsync(loginViewModel.UserName, loginViewModel.Password,false,true);
             if(result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Product");
 
             }
             return View(loginViewModel);
