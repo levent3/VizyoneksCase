@@ -17,6 +17,7 @@ namespace VizyoneksCase.BusinessLayer
 
             services.AddScoped<IProductService,ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICardService, CardManager>();
          
 
 

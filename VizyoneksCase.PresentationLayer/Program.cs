@@ -15,7 +15,7 @@ builder.Services.AddBusinessServices();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 builder.Services.AddManager();
-
+builder.Services.AddSession();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,7 +31,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthentication();
+app.UseSession();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",

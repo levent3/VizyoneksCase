@@ -11,6 +11,7 @@ namespace VizyoneksCase.PresentationLayer.Extention
         {
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICardService, CardManager>();
          
 
             return services;

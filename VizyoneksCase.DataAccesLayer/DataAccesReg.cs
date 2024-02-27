@@ -22,6 +22,7 @@ namespace VizyoneksCase.DataAccesLayer
 
             services.AddScoped<IProductDal, ProductRepository>();
             services.AddScoped<ICategoryDal, CategoryRepository>();      
+            services.AddScoped<ICardDal,CartRepository>();      
 
 
             return services;
