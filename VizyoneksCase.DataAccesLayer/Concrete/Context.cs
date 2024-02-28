@@ -32,7 +32,7 @@ namespace VizyoneksCase.DataAccesLayer.Concrete
             SeedData(builder);
         }
 
-    
+
 
         private void SeedData(ModelBuilder modelBuilder)
         {
@@ -42,15 +42,40 @@ namespace VizyoneksCase.DataAccesLayer.Concrete
                 CategoryName = "Telefon"
             });
 
-            modelBuilder.Entity<Product>().HasData(new Product()
-            {
-                ProductId = 1,
-                CategoryId = 1,
-                Name = "Iphone 15",
-                UnitPrice = 120
-            });
+            modelBuilder.Entity<Product>().HasData(
 
-      
+                new Product()
+                {
+                    ProductId = 1,
+                    CategoryId = 1,
+                    Name = "Iphone 15",
+                    UnitPrice = 50000,
+                    Image = "img/indir.jpg"
+                },
+                      new Product()
+
+                      {
+
+                          ProductId = 2,
+                          CategoryId = 1,
+                          Name = "Iphone 14",
+                          UnitPrice = 30000,
+                          Image = "img/indir.jpg"
+
+                      },
+                        new Product()
+
+                        {
+                            ProductId = 3,
+                            CategoryId = 1,
+                            Name = "Iphone 12",
+                            UnitPrice = 20000,
+                            Image = "img/indir.jpg"
+
+                        }
+
+            );
+
 
         }
 

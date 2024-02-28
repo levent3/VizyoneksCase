@@ -33,9 +33,9 @@ namespace VizyoneksCase.PresentationLayer.Controllers
 
             if(product != null) 
             {
-                var cart = _CardService.GetCart();
+            
                 _CardService.AddToCart(product, 1);
-                _CardService.SaveCart(cart);
+               
             }
             return RedirectToAction("Index");
 

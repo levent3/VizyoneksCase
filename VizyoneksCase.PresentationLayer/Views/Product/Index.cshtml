@@ -1,48 +1,34 @@
-﻿
-@model List<Product>
+﻿@model List<Product>
 
 
 @* <a asp-action="Create" asp-controller="Oda" class="btn btn-primary">Yeni Kayit</a> *@
-
 
 <div class="card">
     <div class="card-header">
         <h3>Ürünler</h3>
     </div>
 
-     
-        <tbody>
-            @foreach (Product pro in Model)
-            {
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+    <div class="row">
+        @foreach (Product pro in Model)
+        {
+            <div class="col-md-4">
+                <!-- 3 sütunlu bir grid layoutu oluşturuyoruz -->
+                <div class="card mb-4">
+                    <img src="@pro.Image" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">@pro.Name</h5>
-                        <h5 class="card-title">@pro.UnitPrice</h5>
-
-                    @using (Html.BeginForm("AddToCart","Cart",new{id = pro.ProductId}))
-                    {
-
-                        @Html.HiddenFor(i=>pro.ProductId);
-                        <button type="submit" class="btn btn-success">
-
-                            <i class="fa fa-cart-plus" aria-hidden="true">
-
-
-                            </i>
-
-                            addtocart
-
-                        </button>
-
-                    }          
-                    </div> 
+                        <p class="card-text">Ürün Fiyatı: @pro.UnitPrice</p>
+                        @using (Html.BeginForm("AddToCart", "Cart", new { id = pro.ProductId }))
+                        {
+                            @Html.HiddenFor(i => pro.ProductId)
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                addtocart
+                            </button>
+                        }
+                    </div>
                 </div>
-
-
-
-
-            }
-        </tbody>
- 
+            </div>
+        }
+    </div>
 </div>

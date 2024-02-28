@@ -49,7 +49,7 @@ namespace VizyoneksCase.BusinessLayer.Concrete
             }
             else
             {
-                cart.CartLines.Add(new CartLine { Product = product, Quantity = quantity });
+               cart.CartLines.Add(new CartLine { Product = product, Quantity = quantity });
             }
 
             SaveCart(cart);
